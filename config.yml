@@ -1,0 +1,54 @@
+# The config recipe.
+# https://rasa.com/docs/rasa-pro/nlu-based-assistants/model-configuration/
+recipe: default.v1
+
+# The assistant project unique identifier
+# This default value must be replaced with a unique assistant name within your deployment
+assistant_id: 20241108-201000-rectilinear-relaxation
+
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa-pro/nlu-based-assistants/components/
+
+language: en
+
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: word
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier
+    epochs: 100
+    batch_size: 32
+    intent_classification: True
+    entity_recognition: True
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
+    epochs: 50
+  - name: FallbackClassifier
+    threshold: 0.3
+    ambiguity_threshold: 0.1
+
+policies:
+  - name: RulePolicy
+    core_fallback_action_name: "action_default_fallback"
+    core_fallback_threshold: 0.3
+    enable_fallback_prediction: True
+  - name: MemoizationPolicy
+    max_history: 5
+  - name: TEDPolicy
+    max_history: 5
+    epochs: 100
+
+actions:
+  - action_answer_banking_question
+  - action_check_balance
+
+
+
+rasa_pro:
+  license_key: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlZWU5YWVmNC1lYmM0LTQ5NjgtYjYxZS0zMDcwYjNkMmRhZTciLCJpYXQiOjE3MzA5NTE1ODQsIm5iZiI6MTczMDk1MTU4Miwic2NvcGUiOiJyYXNhOnBybyByYXNhOnBybzpjaGFtcGlvbiIsImV4cCI6MTgyNTU1OTU4MiwiZW1haWwiOiJseW5fbHhoQGhvdG1haWwuY29tIiwiY29tcGFueSI6IlJhc2EgQ2hhbXBpb25zIn0.IPRs2Up2qznG-MI_Qq6mdpESw0Q3sYr-rLSZoBDPHuT-GP-KfSkG8DsmaRMnyYQPoH1jXUYpBGhL9mzyh9tZHpj93aOBoAsvXz6g-MO74YNC78P75AXBSmd6QUQcF1uoIU3hzCxyxiwwL_N2vxujuUPAEG6FSt2Jx7Br-veeAdMJOrGLYIRckEBX2_Mh4i3I8_ILoYGy2nAp4DidW1Y4CmLD4rNUVCL-L1ouKa2iVeM9gAe4kcf-lqSazlpyK0gD2D5pZk36TZkcGA6pe2-k0W2HiYBfyeMC4lt_pPh8dFd84yMyx665wFWk2pZ1sZzWa9ONVrzAhlT1-3PvB9pJAw"
