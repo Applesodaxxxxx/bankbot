@@ -1,0 +1,57 @@
+stories:
+- steps:
+  - intent: account_services
+  - action: utter_account_services
+  story: Handle account_services query
+- steps:
+  - intent: credit_cards
+  - action: utter_credit_cards
+  story: Handle credit_cards query
+- steps:
+  - intent: loans
+  - action: utter_loans
+  story: Handle loans query
+- steps:
+  - intent: branch_locations
+  - action: utter_branch_locations
+  story: Handle branch_locations query
+- steps:
+  - intent: payment_systems
+  - action: utter_payment_systems
+  story: Handle payment_systems query
+- steps:
+  - intent: fraud_prevention
+  - action: utter_fraud_prevention
+  story: Handle fraud_prevention query
+- steps:
+  - intent: customer_support
+  - action: utter_customer_support
+  story: Handle customer_support query
+- steps:
+  - intent: product_offerings
+  - action: utter_product_offerings
+  story: Handle product_offerings query
+- steps:
+  - intent: regulations
+  - action: utter_regulations
+  story: Handle regulations query
+- steps:
+  - intent: general_faqs
+  - action: utter_general_faqs
+  story: Handle general_faqs query
+- steps:
+  - intent: greetings
+  - action: utter_greetings
+  story: Handle greetings query
+- steps:
+  - intent: thank_you
+  - action: utter_thank_you
+  story: Handle thank_you query
+- steps:
+  - intent: goodbye
+  - action: utter_goodbye
+  story: Handle goodbye query
+- steps:
+  - intent: feedback
+  - action: utter_feedback
+  story: Handle feedback query

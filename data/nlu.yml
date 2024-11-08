@@ -1,0 +1,142 @@
+version: '3.0'
+nlu:
+- intent: account_services
+  examples: '- How can I check my account balance?
+
+    - What is the process to reset my online banking password?
+
+    - What are the requirements to open a savings account?
+
+    - How do I close my bank account?
+
+    - What are the daily ATM withdrawal limits?'
+- intent: credit_cards
+  examples: '- What is the minimum income required to apply for a credit card?
+
+    - How do I report a lost credit card?
+
+    - Can I increase my credit card limit temporarily?
+
+    - How can I check my credit card reward points?
+
+    - What is the interest-free period for credit card payments?'
+- intent: loans
+  examples: '- What documents are required for a home loan application?
+
+    - What is the interest rate for personal loans?
+
+    - How can I refinance my home loan?
+
+    - What are the repayment terms for a car loan?
+
+    - Can I prepay my loan without penalty?'
+- intent: branch_locations
+  examples: '- Where is the nearest branch to Orchard Road?
+
+    - What are the operating hours for the main branch?
+
+    - Which branches are open on Saturdays?
+
+    - Is there a branch at Changi Airport?
+
+    - How can I find an ATM near Marina Bay?'
+- intent: payment_systems
+  examples: '- How do I make a PayNow transfer?
+
+    - What is the daily transfer limit for FAST payments?
+
+    - How can I set up a GIRO arrangement?
+
+    - What are the fees for overseas bank transfers?
+
+    - Can I schedule a future-dated PayNow transfer?'
+- intent: fraud_prevention
+  examples: '- How do I report fraud on my account?
+
+    - What are the warning signs of phishing scams?
+
+    - How does the bank protect my online transactions?
+
+    - What is 2FA, and how does it work?
+
+    - How can I freeze my account in case of suspicious activity?'
+- intent: customer_support
+  examples: '- What is the hotline number for customer service?
+
+    - How can I escalate a complaint to the bank manager?
+
+    - Is there a 24/7 support line for lost cards?
+
+    - How do I contact the bank from overseas?
+
+    - What is the email address for customer inquiries?'
+- intent: product_offerings
+  examples: '- What is the interest rate for fixed deposits?
+
+    - How can I open a joint account?
+
+    - What investment options does the bank offer?
+
+    - What is the minimum deposit for a fixed deposit account?
+
+    - Can I apply for travel insurance through the bank?'
+- intent: regulations
+  examples: '- What is KYC, and why is it required?
+
+    - How does the bank comply with MAS regulations?
+
+    - What are the reporting requirements for large cash transactions?
+
+    - What is the bank''s policy on data privacy?
+
+    - How are customer deposits protected under the SDIC?'
+- intent: general_faqs
+  examples: '- What are the bank''s public holiday hours?
+
+    - How do I update my contact details in the bank''s system?
+
+    - Can I request a replacement cheque book online?
+
+    - What is the exchange rate for USD to SGD today?
+
+    - Does the bank offer student accounts?'
+- intent: greetings
+  examples: '- Hello!
+
+    - Hi there!
+
+    - Good morning!
+
+    - Good afternoon!
+
+    - Hey!'
+- intent: thank_you
+  examples: '- Thank you!
+
+    - Thanks!
+
+    - Thanks a lot!
+
+    - Thank you so much!
+
+    - Thanks for the help!'
+- intent: goodbye
+  examples: '- Goodbye!
+
+    - Bye!
+
+    - See you later!
+
+    - Talk to you soon!
+
+    - Take care!'
+- intent: feedback
+  examples: '- How can I give feedback?
+
+    - I want to leave feedback.
+
+    - Where can I submit feedback?
+
+    - How do I share my suggestions?
+
+    - I have feedback about the service.'
