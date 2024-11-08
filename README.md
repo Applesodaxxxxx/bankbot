@@ -1,13 +1,13 @@
-BankBot AI Chatbot
-Overview
+**Overview**
 This project is a chatbot application powered by Rasa, designed to assist users with banking-related inquiries. The bot utilizes a knowledge base and a machine learning model for question-answering, specifically leveraging TF-IDF vectorization and cosine similarity for retrieval.
 
-Requirements
+**Requirements**
 Python 3.9
 pip (Python package installer)
 Rasa Open Source
 Additional dependencies for machine learning (such as scikit-learn)
-Installation Steps
+
+**Installation Steps**
 1. Clone the Repository
 Clone this repository to a local machine using the following command:
 
