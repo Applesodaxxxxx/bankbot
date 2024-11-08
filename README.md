@@ -10,8 +10,8 @@ Requirements
 -   Python 3.9
 -   pip (Python package installer)
 -   Rasa Open Source
--   Additional dependencies for machine learning (such as scikit-learn)
-
+-   Additional dependencies for machine learning
+  
 Installation Steps
 ------------------
 
