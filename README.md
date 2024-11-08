@@ -19,10 +19,6 @@ Installation Steps
 
 Clone this repository to a local machine using the following command:
 
-bash
-
-Copy code
-
 `git clone https://github.com/yourusername/bankbot-chatbot.git
 cd bankbot-chatbot`
 
@@ -32,18 +28,10 @@ It is recommended to create a virtual environment to manage dependencies. This c
 
 #### Using `venv`:
 
-bash
-
-Copy code
-
 `python -m venv venv
 source venv/bin/activate  # On Windows use `venv\Scripts\activate``
 
 #### Using `conda`:
-
-bash
-
-Copy code
 
 `conda create --name bankbot python=3.9
 conda activate bankbot`
@@ -52,19 +40,11 @@ conda activate bankbot`
 
 Install Rasa using pip:
 
-bash
-
-Copy code
-
 `pip install rasa`
 
 ### 4\. Install Additional Dependencies
 
 Ensure all necessary packages for the chatbot are installed:
-
-bash
-
-Copy code
 
 `pip install -r requirements.txt`
 
@@ -80,19 +60,11 @@ In the project directory, create the necessary files and directories:
 
 Train the Rasa model using the following command:
 
-bash
-
-Copy code
-
 `rasa train`
 
 ### 7\. Run the Rasa Action Server
 
 In a new terminal window, navigate to the project directory and run the Rasa action server:
-
-bash
-
-Copy code
 
 `rasa run actions`
 
@@ -100,19 +72,11 @@ Copy code
 
 In another terminal window, run the Rasa server:
 
-bash
-
-Copy code
-
 `rasa run`
 
 ### 9\. Run the QA Model
 
 In yet another terminal window, run the QA model:
-
-bash
-
-Copy code
 
 `python qa_model.py`
 
