@@ -1,0 +1,318 @@
+{
+    "account_services": [
+        {
+            "question": "I've forgotten my username, how can I retrieve it?",
+            "response": "If you have forgotten your Online Banking username, please contact our customer service centre to retrieve it."
+        },
+        {
+            "question": "What is the process to reset my online banking password?",
+            "response": "Use the 'Forgot Password' option on the login page and follow the instructions."
+        },
+        {
+            "question": "What are the requirements to open a savings account?",
+            "response": "You need your NRIC, proof of address, and a minimum deposit of $500."
+        },
+        {
+            "question": "How do I close my bank account?",
+            "response": "Visit any branch with your NRIC and settle outstanding balances to close your account."
+        },
+        {
+            "question": "What are the daily ATM withdrawal limits?",
+            "response": "The daily ATM withdrawal limit is typically $5,000, adjustable via mobile banking."
+        }
+    ],
+    "credit_cards": [
+        {
+            "question": "What is the minimum income required to apply for a credit card?",
+            "response": "The minimum annual income is $30,000 for Singaporeans and $40,000 for foreigners."
+        },
+        {
+            "question": "How do I report a lost credit card?",
+            "response": "Call the bank's hotline immediately to report and block your card."
+        },
+        {
+            "question": "Can I increase my credit card limit temporarily?",
+            "response": "You can request a temporary limit increase via internet or mobile banking."
+        },
+        {
+            "question": "How can I check my credit card reward points?",
+            "response": "Log in to internet banking and navigate to 'Rewards' to view your points."
+        },
+        {
+            "question": "Am I eligible for a credit card?",
+            "response": "To apply for a credit card, you will need to be at least 21 years old."
+        },
+          {
+            "question": "What do I need to apply credit card?",
+            "response": "If you are an existing DBS/POSB Credit Cardholder, simply log in to your DBS/POSB digibank app or online to apply."
+        },
+        {
+            "question": "What is the interest-free period for credit card payments?",
+            "response": "The interest-free period is usually up to 55 days, subject to terms."
+        }
+    ],
+    "loans": [
+        {
+            "question": "What documents are required for a home loan application?",
+            "response": "You need your NRIC, proof of income, and property details for a home loan."
+        },
+        {
+            "question": "What is the interest rate for personal loans?",
+            "response": "Personal loan interest rates start from 3.88% per annum, subject to approval."
+        },
+        {
+            "question": "How can I refinance my home loan?",
+            "response": "Contact your bank to discuss refinancing options and eligibility."
+        },
+        {
+            "question": "What are the repayment terms for a car loan?",
+            "response": "Car loan terms range from 1 to 7 years, depending on the loan amount and agreement."
+        },
+        {
+            "question": "Can I prepay my loan without penalty?",
+            "response": "Prepayment policies vary by bank; check your loan agreement for details."
+        }
+    ],
+    "branch_locations": [
+        {
+            "question": "Where is the nearest branch to Orchard Road?",
+            "response": "The nearest branch to Orchard Road is at ION Orchard, Level 2."
+        },
+        {
+            "question": "What are the operating hours for the main branch?",
+            "response": "The main branch operates Monday to Friday, 9 AM to 4:30 PM."
+        },
+        {
+            "question": "Which branches are open on Saturdays?",
+            "response": "Some branches are open on Saturdays from 9 AM to 12:30 PM; check the branch locator."
+        },
+        {
+            "question": "Is there a branch at Changi Airport?",
+            "response": "Yes, there is a branch at Changi Airport Terminal 3, Arrival Hall."
+        },
+        {
+            "question": "How can I find an ATM near Marina Bay?",
+            "response": "Use the bank's mobile app or website to locate ATMs near Marina Bay."
+        }
+    ],
+    "payment_systems": [
+        {
+            "question": "How do I make a PayNow transfer?",
+            "response": "Log in to internet banking or the mobile app and select 'PayNow' to transfer funds."
+        },
+        {
+            "question": "What is the daily transfer limit for FAST payments?",
+            "response": "The daily FAST transfer limit is $200,000, adjustable via banking settings."
+        },
+        {
+            "question": "How can I set up a GIRO arrangement?",
+            "response": "Submit a GIRO application via your bank's mobile or internet banking platform."
+        },
+        {
+            "question": "What are the fees for overseas bank transfers?",
+            "response": "Overseas transfer fees vary but typically start from $10 per transaction."
+        },
+        {
+            "question": "Can I schedule a future-dated PayNow transfer?",
+            "response": "Yes, future-dated PayNow transfers can be scheduled via mobile or internet banking."
+        }
+    ],
+    "fraud_prevention": [
+        {
+            "question": "How do I report fraud on my account?",
+            "response": "Call the bank's fraud hotline immediately to report suspicious activities."
+        },
+        {
+            "question": "What are the warning signs of phishing scams?",
+            "response": "Phishing scams often involve fake emails or messages asking for personal details."
+        },
+        {
+            "question": "How does the bank protect my online transactions?",
+            "response": "The bank uses encryption and two-factor authentication to secure online transactions."
+        },
+        {
+            "question": "What is 2FA, and how does it work?",
+            "response": "2FA adds an extra layer of security by requiring a one-time password for transactions."
+        },
+        {
+            "question": "How can I freeze my account in case of suspicious activity?",
+            "response": "Call customer service or use internet banking to freeze your account temporarily."
+        }
+    ],
+    "customer_support": [
+        {
+            "question": "What is the hotline number for customer service?",
+            "response": "The customer service hotline is 1800-123-4567 for local inquiries."
+        },
+        {
+            "question": "How can I escalate a complaint to the bank manager?",
+            "response": "Request an escalation through customer service or the bank's complaint portal."
+        },
+        {
+            "question": "Is there a 24/7 support line for lost cards?",
+            "response": "Yes, call the 24/7 hotline to report and block your lost card immediately."
+        },
+        {
+            "question": "How do I contact the bank from overseas?",
+            "response": "Dial the overseas customer service number +65-123-4567 for assistance."
+        },
+        {
+            "question": "What is the email address for customer inquiries?",
+            "response": "Customer inquiries can be sent to support@bankname.com."
+        }
+    ],
+    "product_offerings": [
+        {
+            "question": "What is the interest rate for fixed deposits?",
+            "response": "Fixed deposit interest rates start from 0.5% per annum, depending on the tenure."
+        },
+        {
+            "question": "How can I open a joint account?",
+            "response": "Visit a branch with all account holders and their identification documents."
+        },
+        {
+            "question": "What investment options does the bank offer?",
+            "response": "The bank offers stocks, mutual funds, and savings bonds as investment options."
+        },
+        {
+            "question": "What is the minimum deposit for a fixed deposit account?",
+            "response": "The minimum deposit for a fixed deposit account is $1,000."
+        },
+        {
+            "question": "Can I apply for travel insurance through the bank?",
+            "response": "Yes, travel insurance can be applied for via the bank's website or mobile app."
+        }
+    ],
+    "regulations": [
+        {
+            "question": "What is KYC, and why is it required?",
+            "response": "KYC ensures customer identity verification to comply with legal regulations."
+        },
+        {
+            "question": "How does the bank comply with MAS regulations?",
+            "response": "The bank complies with MAS by following guidelines on security and transparency."
+        },
+        {
+            "question": "What are the reporting requirements for large cash transactions?",
+            "response": "Transactions above $20,000 must be reported to the authorities as per MAS rules."
+        },
+        {
+            "question": "What is the bank's policy on data privacy?",
+            "response": "The bank safeguards customer data under the PDPA and its internal policies."
+        },
+        {
+            "question": "How are customer deposits protected under the SDIC?",
+            "response": "Deposits are insured up to $75,000 per account under the SDIC scheme."
+        }
+    ],
+    "general_faqs": [
+        {
+            "question": "What are the bank's public holiday hours?",
+            "response": "Most branches are closed on public holidays; check specific branch timings online."
+        },
+        {
+            "question": "How do I update my contact details in the bank's system?",
+            "response": "Update your contact details via internet banking or at any branch."
+        },
+        {
+            "question": "Can I request a replacement cheque book online?",
+            "response": "Yes, replacement cheque books can be requested via internet banking."
+        },
+        {
+            "question": "What is the exchange rate for USD to SGD today?",
+            "response": "Exchange rates are updated daily; check the bank's website or mobile app for details."
+        },
+        {
+            "question": "Does the bank offer student accounts?",
+            "response": "Yes, student accounts with no minimum balance are available for eligible customers."
+        }
+    ],
+    "greetings": [
+        {
+            "question": "Hello!",
+            "response": "Hello! How can I assist you today?"
+        },
+        {
+            "question": "Hi there!",
+            "response": "Hi! How may I help you with your banking needs?"
+        },
+        {
+            "question": "Good morning!",
+            "response": "Good morning! What can I do for you today?"
+        },
+        {
+            "question": "Good afternoon!",
+            "response": "Good afternoon! How can I assist you?"
+        },
+        {
+            "question": "Hey!",
+            "response": "Hey! How can I help you?"
+        }
+    ],
+    "thank_you": [
+        {
+            "question": "Thank you!",
+            "response": "You're welcome! Let me know if you need anything else."
+        },
+        {
+            "question": "Thanks!",
+            "response": "Happy to help!"
+        },
+        {
+            "question": "Thanks a lot!",
+            "response": "My pleasure! Is there anything else I can assist you with?"
+        },
+        {
+            "question": "Thank you so much!",
+            "response": "You're most welcome!"
+        },
+        {
+            "question": "Thanks for the help!",
+            "response": "Anytime! Feel free to ask if you have more questions."
+        }
+    ],
+    "goodbye": [
+        {
+            "question": "Goodbye!",
+            "response": "Goodbye! Have a great day!"
+        },
+        {
+            "question": "Bye!",
+            "response": "Bye! Take care!"
+        },
+        {
+            "question": "See you later!",
+            "response": "See you later!"
+        },
+        {
+            "question": "Talk to you soon!",
+            "response": "Talk to you soon!"
+        },
+        {
+            "question": "Take care!",
+            "response": "Take care! Stay safe!"
+        }
+    ],
+    "feedback": [
+        {
+            "question": "How can I give feedback?",
+            "response": "You can provide feedback via our website or mobile app."
+        },
+        {
+            "question": "I want to leave feedback.",
+            "response": "Sure! Please use the feedback form on our website or app."
+        },
+        {
+            "question": "Where can I submit feedback?",
+            "response": "Feedback can be submitted through our customer service portal or app."
+        },
+        {
+            "question": "How do I share my suggestions?",
+            "response": "You can share your suggestions via the feedback section on our website."
+        },
+        {
+            "question": "I have feedback about the service.",
+            "response": "We value your feedback! Please share it on our feedback platform online."
+        }
+    ]
+}
