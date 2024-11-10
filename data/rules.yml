@@ -1,57 +1,85 @@
+version: "3.1"
+
 rules:
 - rule: Respond to account_services query
   steps:
   - intent: account_services
   - action: utter_account_services
+
 - rule: Respond to credit_cards query
   steps:
   - intent: credit_cards
   - action: utter_credit_cards
+
 - rule: Respond to loans query
   steps:
   - intent: loans
   - action: utter_loans
+
 - rule: Respond to branch_locations query
   steps:
   - intent: branch_locations
   - action: utter_branch_locations
+
 - rule: Respond to payment_systems query
   steps:
   - intent: payment_systems
   - action: utter_payment_systems
+
 - rule: Respond to fraud_prevention query
   steps:
   - intent: fraud_prevention
   - action: utter_fraud_prevention
+
 - rule: Respond to customer_support query
   steps:
   - intent: customer_support
   - action: utter_customer_support
+
 - rule: Respond to product_offerings query
   steps:
   - intent: product_offerings
   - action: utter_product_offerings
+
 - rule: Respond to regulations query
   steps:
   - intent: regulations
   - action: utter_regulations
+
 - rule: Respond to general_faqs query
   steps:
   - intent: general_faqs
   - action: utter_general_faqs
+
 - rule: Respond to greetings query
   steps:
   - intent: greetings
   - action: utter_greetings
+
 - rule: Respond to thank_you query
   steps:
   - intent: thank_you
   - action: utter_thank_you
+
 - rule: Respond to goodbye query
   steps:
   - intent: goodbye
   - action: utter_goodbye
+
 - rule: Respond to feedback query
   steps:
   - intent: feedback
   - action: utter_feedback
+
+- rule: Ask for user ID
+  steps:
+  - intent: check_balance
+  - action: utter_ask_user_id
+
+- rule: Provide balance
+  condition:
+  - slot_was_set:
+      - user_id: null
+  steps:
+  - action: action_check_balance
+  - action: utter_provide_balance
