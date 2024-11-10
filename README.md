@@ -19,8 +19,8 @@ Installation Steps
 
 Clone this repository to a local machine using the following command:
 
-`git clone https://github.com/yourusername/bankbot-chatbot.git
-cd bankbot-chatbot`
+`git clone https://github.com/Applesodaxxxxx/bankbot.git
+cd bankbot`
 
 ### 2\. Create a Virtual Environment
 
