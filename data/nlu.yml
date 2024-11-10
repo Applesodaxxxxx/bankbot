@@ -1,142 +1,131 @@
-version: '3.0'
+version: "3.1"
 nlu:
+- intent: check_balance
+  examples: |
+    - I want to check my account balance.
+    - What's my balance right now?
+    - Can you show me the balance for my account?
+    - How much money do I have in my account?
+    - What’s my balance for user ID [12345](user_id)?
+    - Please check the balance for user ID [67890](user_id).
+    - Can you find my account balance?
+    - Tell me my current balance.
+    - Get my account balance.
+    - How much do I have in my savings account?
+
 - intent: account_services
-  examples: '- How can I check my account balance?
+  examples: |
+    - Tell me about account services.
+    - What is the daily withdrawal limit?
+    - How do I reset my password for online banking?
+    - How do I close my account?
 
-    - What is the process to reset my online banking password?
-
-    - What are the requirements to open a savings account?
-
-    - How do I close my bank account?
-
-    - What are the daily ATM withdrawal limits?'
 - intent: credit_cards
-  examples: '- What is the minimum income required to apply for a credit card?
+  examples: |
+    - What is the minimum income requirement for a credit card?
+    - How can I increase my credit limit?
+    - Tell me about credit card rewards.
+    - How do I block my credit card?
+    - What is the interest-free period for credit cards?
 
-    - How do I report a lost credit card?
-
-    - Can I increase my credit card limit temporarily?
-
-    - How can I check my credit card reward points?
-
-    - What is the interest-free period for credit card payments?'
 - intent: loans
-  examples: '- What documents are required for a home loan application?
+  examples: |
+    - What documents do I need for a home loan?
+    - Tell me about personal loan interest rates.
+    - How can I refinance my loan?
+    - What are the terms for a car loan?
+    - Can I prepay my loan?
 
-    - What is the interest rate for personal loans?
-
-    - How can I refinance my home loan?
-
-    - What are the repayment terms for a car loan?
-
-    - Can I prepay my loan without penalty?'
 - intent: branch_locations
-  examples: '- Where is the nearest branch to Orchard Road?
-
+  examples: |
+    - Where is the nearest branch to Orchard Road?
+    - Are branches open on Saturdays?
     - What are the operating hours for the main branch?
-
-    - Which branches are open on Saturdays?
-
     - Is there a branch at Changi Airport?
+    - How can I locate ATMs near Marina Bay?
 
-    - How can I find an ATM near Marina Bay?'
 - intent: payment_systems
-  examples: '- How do I make a PayNow transfer?
+  examples: |
+    - How do I transfer funds using PayNow?
+    - What is the daily limit for FAST transfers?
+    - Can I schedule future-dated PayNow transfers?
+    - How do I apply for GIRO?
+    - What are the fees for overseas transfers?
 
-    - What is the daily transfer limit for FAST payments?
-
-    - How can I set up a GIRO arrangement?
-
-    - What are the fees for overseas bank transfers?
-
-    - Can I schedule a future-dated PayNow transfer?'
 - intent: fraud_prevention
-  examples: '- How do I report fraud on my account?
+  examples: |
+    - How can I report suspicious activities?
+    - What are phishing scams?
+    - Tell me about two-factor authentication.
+    - How do I freeze my account temporarily?
+    - How does the bank secure online transactions?
 
-    - What are the warning signs of phishing scams?
-
-    - How does the bank protect my online transactions?
-
-    - What is 2FA, and how does it work?
-
-    - How can I freeze my account in case of suspicious activity?'
 - intent: customer_support
-  examples: '- What is the hotline number for customer service?
+  examples: |
+    - What is the customer service hotline?
+    - How can I escalate an issue?
+    - Can I contact customer support while overseas?
+    - Where can I send customer inquiries?
+    - How do I report a lost card?
 
-    - How can I escalate a complaint to the bank manager?
-
-    - Is there a 24/7 support line for lost cards?
-
-    - How do I contact the bank from overseas?
-
-    - What is the email address for customer inquiries?'
 - intent: product_offerings
-  examples: '- What is the interest rate for fixed deposits?
-
-    - How can I open a joint account?
-
-    - What investment options does the bank offer?
-
+  examples: |
+    - What are the fixed deposit interest rates?
+    - Does the bank offer travel insurance?
+    - What investment options do you provide?
     - What is the minimum deposit for a fixed deposit account?
+    - How do I apply for savings bonds?
 
-    - Can I apply for travel insurance through the bank?'
 - intent: regulations
-  examples: '- What is KYC, and why is it required?
+  examples: |
+    - What is KYC?
+    - How does the bank comply with MAS guidelines?
+    - Are deposits insured under SDIC?
+    - What is the limit for transactions that must be reported to MAS?
+    - How does the bank protect customer data under PDPA?
 
-    - How does the bank comply with MAS regulations?
-
-    - What are the reporting requirements for large cash transactions?
-
-    - What is the bank''s policy on data privacy?
-
-    - How are customer deposits protected under the SDIC?'
 - intent: general_faqs
-  examples: '- What are the bank''s public holiday hours?
-
-    - How do I update my contact details in the bank''s system?
-
+  examples: |
+    - Are branches open on public holidays?
+    - How do I update my contact details?
     - Can I request a replacement cheque book online?
+    - Where can I check exchange rates?
+    - Are there accounts with no minimum balance for students?
 
-    - What is the exchange rate for USD to SGD today?
-
-    - Does the bank offer student accounts?'
 - intent: greetings
-  examples: '- Hello!
+  examples: |
+    - Hi
+    - Hello
+    - Good morning
+    - Good afternoon
+    - Hey there
 
-    - Hi there!
-
-    - Good morning!
-
-    - Good afternoon!
-
-    - Hey!'
 - intent: thank_you
-  examples: '- Thank you!
+  examples: |
+    - Thanks
+    - Thank you
+    - Appreciate it
+    - Many thanks
+    - You're the best
 
-    - Thanks!
-
-    - Thanks a lot!
-
-    - Thank you so much!
-
-    - Thanks for the help!'
 - intent: goodbye
-  examples: '- Goodbye!
+  examples: |
+    - Goodbye
+    - Bye
+    - See you later
+    - Take care
+    - Talk to you soon
 
-    - Bye!
-
-    - See you later!
-
-    - Talk to you soon!
-
-    - Take care!'
 - intent: feedback
-  examples: '- How can I give feedback?
-
+  examples: |
     - I want to leave feedback.
+    - How can I share my suggestions?
+    - Where can I provide feedback?
+    - I’d like to leave a review.
+    - Can I send feedback through the app?
 
-    - Where can I submit feedback?
-
-    - How do I share my suggestions?
-
-    - I have feedback about the service.'
+- intent: inform
+  examples: |
+    - [12345](user_id).
+    - My user ID is [67890](user_id).
+    - It's [54321](user_id).
