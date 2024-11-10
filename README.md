@@ -29,7 +29,7 @@ It is recommended to create a virtual environment to manage dependencies. This c
 #### Using `venv`:
 
 `python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate``
+source venv/bin/activate  # On Windows use venv\Scripts\activate`
 
 #### Using `conda`:
 
