@@ -2,17 +2,17 @@ version: "3.1"
 
 stories:
 - steps:
-  - intent: account_services
-  - action: utter_account_services
-  story: Handle account_services query
+  - intent: reset_password
+  - action: utter_reset_password
+  story: Handle reset_password query
 - steps:
-  - intent: credit_cards
-  - action: utter_credit_cards
-  story: Handle credit_cards query
+  - intent: apply_credit_cards
+  - action: utter_apply_credit_cards
+  story: Handle apply_credit_cards query
 - steps:
-  - intent: loans
-  - action: utter_loans
-  story: Handle loans query
+  - intent: home_loans
+  - action: utter_home_loans
+  story: Handle home_loans query
 - steps:
   - intent: branch_locations
   - action: utter_branch_locations
