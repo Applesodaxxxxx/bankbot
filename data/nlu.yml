@@ -13,36 +13,58 @@ nlu:
     - Get my account balance.
     - How much do I have in my savings account?
 
-- intent: account_services
+- intent: reset_password
   examples: |
-    - Tell me about account services.
-    - What is the daily withdrawal limit?
-    - How do I reset my password for online banking?
-    - How do I close my account?
+    - How do I reset my bank account password?
+    - What steps do I need to take to change my bank account password?
+    - How can I recover my forgotten bank account password?
+    - What should I do if I can't remember my bank password?
+    - Is there a way to reset my online banking password?
+    - How do I create a new password for my bank account?
+    - What information do I need to provide to reset my password?
+    - How long does it take to reset my bank account password?
+    - What if I receive an error when trying to reset my password?
+    - How can I ensure my new bank password is secure?
+    - Can I reset my password through customer service?
 
-- intent: credit_cards
+- intent: apply_credit_cards
   examples: |
-    - What is the minimum income requirement for a credit card?
-    - How can I increase my credit limit?
-    - Tell me about credit card rewards.
-    - How do I block my credit card?
-    - What is the interest-free period for credit cards?
+    - How do I apply for a credit card online?
+    - What steps should I follow to submit a credit card application?
+    - Can I apply for a credit card through my bank's mobile app?
+    - What information do I need to provide when applying for a credit card?
+    - How do I know if my credit card application has been submitted successfully?
+    - Are there specific eligibility criteria I need to meet to apply for a credit card?
+    - What is the best way to apply for a credit card with a low interest rate?
+    - How can I track the status of my credit card application?
+    - What should I do if I encounter issues while applying for a credit card?
+    - Can I apply for a credit card if I am a student or have no credit history?
 
-- intent: loans
+- intent: home_loans
   examples: |
-    - What documents do I need for a home loan?
-    - Tell me about personal loan interest rates.
-    - How can I refinance my loan?
-    - What are the terms for a car loan?
-    - Can I prepay my loan?
+    - What documents do I need to apply for a home loan?
+    - How can I check my eligibility for a home loan?
+    - What is the process for applying for a home loan online?
+    - Are there any fees associated with applying for a home loan?
+    - How long does it take to get approved for a home loan?
+    - Can I apply for a home loan if I have a low credit score?
+    - What types of home loans are available for first-time buyers?
+    - How do I compare different home loan offers before applying?
+    - Is it possible to apply for a home loan with a co-borrower?
+    - What should I do if my home loan application is denied?
 
 - intent: branch_locations
   examples: |
-    - Where is the nearest branch to Orchard Road?
-    - Are branches open on Saturdays?
-    - What are the operating hours for the main branch?
-    - Is there a branch at Changi Airport?
-    - How can I locate ATMs near Marina Bay?
+    - Where is the nearest bank branch in Orchard Road?
+    - Can you tell me the location of the bank branch in Marina Bay Sands?
+    - What is the address of the bank branch at Raffles Place?
+    - Is there a bank branch in VivoCity, and what are its operating hours?
+    - Where can I find the bank branch in Bugis Junction?
+    - What is the location of the bank branch in Tiong Bahru?
+    - Are there any bank branches near Clarke Quay?
+    - Can you provide the address for the bank branch in Holland Village?
+    - Where is the nearest bank branch in Jurong East?
+    - What are the details for the bank branch located in Sentosa?
 
 - intent: payment_systems
   examples: |
