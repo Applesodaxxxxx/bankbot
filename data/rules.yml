@@ -1,20 +1,20 @@
 version: "3.1"
 
 rules:
-- rule: Respond to account_services query
+- rule: Respond to reset_password query
   steps:
-  - intent: account_services
-  - action: utter_account_services
+  - intent: reset_password
+  - action: utter_reset_password
 
-- rule: Respond to credit_cards query
+- rule: Respond to apply_credit_cards query
   steps:
-  - intent: credit_cards
-  - action: utter_credit_cards
+  - intent: apply_credit_cards
+  - action: utter_apply_credit_cards
 
-- rule: Respond to loans query
+- rule: Respond to home_loans query
   steps:
-  - intent: loans
-  - action: utter_loans
+  - intent: home_loans
+  - action: utter_home_loans
 
 - rule: Respond to branch_locations query
   steps:
