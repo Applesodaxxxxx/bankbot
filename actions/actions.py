@@ -1,9 +1,13 @@
 import os
 import json
 import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.events import UserUtteranceReverted
 
+# File paths
 base_dir = os.path.dirname(os.path.abspath(__file__))
 json_file_path = os.path.join(base_dir, "knowledge_base.json")
 csv_file_path = os.path.join(base_dir, "user_balance.csv")
@@ -18,9 +22,10 @@ def load_knowledge_base(file_path):
         for item in items:
             question = item.get("question", "")
             response = item.get("response", "")
-            content = f"Category: {category}\nQ: {question}\nA: {response}"
-            docs.append({"content": content, "response": response, "question": question})
+            docs.append({"question": question, "response": response})
     return docs
+
+knowledge_base = load_knowledge_base(json_file_path)
 
 # Load User Data
 def load_user_data():
@@ -30,36 +35,52 @@ def load_user_data():
         print(f"Error loading user data: {e}")
         return pd.DataFrame(columns=["user_id", "balance"])
 
-knowledge_base = load_knowledge_base(json_file_path)
 user_data = load_user_data()
 
-# Get answer from Knowledge Base
-def get_answer(question):
-    for doc in knowledge_base:
-        if question.lower() in doc["content"].lower():
-            return doc["response"] 
-    return "Sorry, I couldn't find an answer."
+# Initialize TF-IDF
+def initialize_tfidf(kb):
+    corpus = [item["question"] for item in kb]
+    vectorizer = TfidfVectorizer(stop_words="english")
+    tfidf_matrix = vectorizer.fit_transform(corpus)
+    return vectorizer, tfidf_matrix
 
+tfidf_vectorizer, tfidf_matrix = initialize_tfidf(knowledge_base)
 
-class ActionAnswerBankingQuestion(Action):
+# Function to retrieve best match from knowledge base
+def retrieve_best_match(query):
+    query_vector = tfidf_vectorizer.transform([query])
+    cosine_similarities = cosine_similarity(query_vector, tfidf_matrix).flatten()
+    best_match_idx = cosine_similarities.argmax()
+    best_score = cosine_similarities[best_match_idx]
+
+    if best_score > 0.2:  # Threshold for similarity
+        return knowledge_base[best_match_idx]["response"]
+    else:
+        return "Sorry, I couldn't find an answer in our knowledge base."
+
+# Fallback Action
+class ActionCustomFallback(Action):
     def name(self) -> str:
-        return "action_answer_banking_question"
+        return "action_custom_fallback"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict):
-        user_question = tracker.latest_message.get('text', '')
-        if not user_question:
-            dispatcher.utter_message(text="Sorry, I didn't understand your question.")
+        user_query = tracker.latest_message.get("text", "").strip()
+        if not user_query:
+            dispatcher.utter_message(text="I'm sorry, I couldn't understand your query.")
             return []
 
         try:
-            answer = get_answer(user_question)
-            dispatcher.utter_message(text=answer) 
+            # Process query through TF-IDF and cosine similarity
+            response = retrieve_best_match(user_query)
+            dispatcher.utter_message(text=response)
         except Exception as e:
-            dispatcher.utter_message(text="An error occurred while processing your request.")
-            print(f"Error: {e}") 
-        return []
+            dispatcher.utter_message(text="An error occurred while processing your query.")
+            print(f"Error: {e}")
 
-# Check User Balance
+        # Optionally revert user utterance to allow retry
+        return [UserUtteranceReverted()]
+
+# Check Balance Action
 class ActionCheckBalance(Action):
     def name(self) -> str:
         return "action_check_balance"
@@ -83,4 +104,23 @@ class ActionCheckBalance(Action):
             dispatcher.utter_message(text="An error occurred. Please try again later.")
             print(f"Error: {e}")
         
+        return []
+
+# Answer Banking Questions (Direct from Knowledge Base)
+class ActionAnswerBankingQuestion(Action):
+    def name(self) -> str:
+        return "action_answer_banking_question"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict):
+        user_question = tracker.latest_message.get('text', '')
+        if not user_question:
+            dispatcher.utter_message(text="Sorry, I didn't understand your question.")
+            return []
+
+        try:
+            answer = retrieve_best_match(user_question)
+            dispatcher.utter_message(text=answer)
+        except Exception as e:
+            dispatcher.utter_message(text="An error occurred while processing your request.")
+            print(f"Error: {e}")
         return []
