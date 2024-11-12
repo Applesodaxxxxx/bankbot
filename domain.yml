@@ -17,6 +17,7 @@ intents:
   - feedback
   - check_balance
   - inform
+  - fallback
 
 entities:
   - user_id
@@ -140,4 +141,6 @@ slots:
       - type: custom
 
 actions:
+  - action_answer_banking_question
   - action_check_balance
+  - action_custom_fallback
