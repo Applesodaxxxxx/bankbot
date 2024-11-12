@@ -13,7 +13,7 @@ language: en
 
 pipeline:
   - name: SpacyNLP
-    model: en_core_web_lg
+    model: en_core_web_md
   - name: SpacyTokenizer
   - name: SpacyFeaturizer
   - name: RegexFeaturizer
@@ -25,22 +25,22 @@ pipeline:
     min_ngram: 1
     max_ngram: 4
   - name: DIETClassifier
-    epochs: 100
+    epochs: 150
     batch_size: 32
     intent_classification: True
     entity_recognition: True
     constrain_similarities: True
   - name: EntitySynonymMapper
   - name: ResponseSelector
-    epochs: 50
+    epochs: 100
   - name: FallbackClassifier
-    threshold: 0.3
+    threshold: 0.9
     ambiguity_threshold: 0.1
 
 policies:
   - name: RulePolicy
-    core_fallback_action_name: "action_default_fallback"
-    core_fallback_threshold: 0.3
+    core_fallback_action_name: "action_custom_fallback"
+    core_fallback_threshold: 0.7
     enable_fallback_prediction: True
   - name: MemoizationPolicy
     max_history: 5
@@ -53,6 +53,7 @@ policies:
 actions:
   - action_answer_banking_question
   - action_check_balance
+  - action_custom_fallback
 
 
 
