@@ -1,55 +1,6 @@
 version: "3.1"
 
 rules:
-- rule: Respond to reset_password query
-  steps:
-  - intent: reset_password
-  - action: utter_reset_password
-
-- rule: Respond to apply_credit_cards query
-  steps:
-  - intent: apply_credit_cards
-  - action: utter_apply_credit_cards
-
-- rule: Respond to home_loans query
-  steps:
-  - intent: home_loans
-  - action: utter_home_loans
-
-- rule: Respond to branch_locations query
-  steps:
-  - intent: branch_locations
-  - action: utter_branch_locations
-
-- rule: Respond to payment_systems query
-  steps:
-  - intent: payment_systems
-  - action: utter_payment_systems
-
-- rule: Respond to fraud_prevention query
-  steps:
-  - intent: fraud_prevention
-  - action: utter_fraud_prevention
-
-- rule: Respond to customer_support query
-  steps:
-  - intent: customer_support
-  - action: utter_customer_support
-
-- rule: Respond to product_offerings query
-  steps:
-  - intent: product_offerings
-  - action: utter_product_offerings
-
-- rule: Respond to regulations query
-  steps:
-  - intent: regulations
-  - action: utter_regulations
-
-- rule: Respond to general_faqs query
-  steps:
-  - intent: general_faqs
-  - action: utter_general_faqs
 
 - rule: Respond to greetings query
   steps:
@@ -66,11 +17,6 @@ rules:
   - intent: goodbye
   - action: utter_goodbye
 
-- rule: Respond to feedback query
-  steps:
-  - intent: feedback
-  - action: utter_feedback
-
 - rule: Ask for user ID
   steps:
   - intent: check_balance
@@ -86,11 +32,10 @@ rules:
 
 - rule: Handle fallback
   steps:
-  - intent: fallback
-  - action: action_custom_fallback
+    - intent: fallback
+    - action: action_custom_fallback
 
-- rule: Handle low confidence
-  condition:
-  - active_loop: null
+- rule: Handle faq
   steps:
-  - action: action_custom_fallback
+    - intent: faq
+    - action: action_custom_fallback
