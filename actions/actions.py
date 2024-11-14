@@ -105,22 +105,3 @@ class ActionCheckBalance(Action):
             print(f"Error: {e}")
         
         return []
-
-# Answer Banking Questions (Direct from Knowledge Base)
-class ActionAnswerBankingQuestion(Action):
-    def name(self) -> str:
-        return "action_answer_banking_question"
-
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict):
-        user_question = tracker.latest_message.get('text', '')
-        if not user_question:
-            dispatcher.utter_message(text="Sorry, I didn't understand your question.")
-            return []
-
-        try:
-            answer = retrieve_best_match(user_question)
-            dispatcher.utter_message(text=answer)
-        except Exception as e:
-            dispatcher.utter_message(text="An error occurred while processing your request.")
-            print(f"Error: {e}")
-        return []
