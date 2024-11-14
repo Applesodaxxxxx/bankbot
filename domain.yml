@@ -1,26 +1,21 @@
 version: "3.1"
 
 intents:
-  - reset_password
-  - apply_credit_cards
-  - home_loans
-  - branch_locations
-  - payment_systems
-  - fraud_prevention
-  - customer_support
-  - product_offerings
-  - regulations
-  - general_faqs
   - greetings
   - thank_you
   - goodbye
-  - feedback
   - check_balance
   - inform
   - fallback
+  - faq
+  - feedback
+  - inform_rating
+  - inform_feedback
 
 entities:
   - user_id
+  - rating
+  - feedback_message
 
 responses:
   utter_ask_user_id:
@@ -31,55 +26,6 @@ responses:
     - text: "The balance for user ID {user_id} is {balance}."
     - text: "User ID {user_id} currently has a balance of {balance}."
     - text: "Your account balance for user ID {user_id} is {balance}."
-  utter_reset_password:
-    - text: "To reset your password, please visit our official website and navigate to the password recovery section."
-    - text: "If you've forgotten your password, you can initiate a recovery process by following the prompts on our login page."
-    - text: "You can create a new password by following the instructions sent to your registered email after you request a reset."
-  utter_branch_locations:
-    - text: "The nearest bank branch in Orchard Road is located at 391 Orchard Road, #B2-21/22/23, Takashimaya Shopping Centre, Singapore 238872."
-    - text: "You can find the bank branch in Marina Bay Sands at 12 Marina Boulevard, DBS Asia Central @ Marina Bay Financial Centre Tower 3, Singapore 018982."
-    - text: "The bank branch at Raffles Place is situated at 3 Temasek Boulevard, #02-709/710/711, Suntec City Mall, Singapore 038983."
-    - text: "Yes, there is a bank branch in VivoCity located at 1 Jurong West Central 2, #B1-20, Jurong Point Shopping Centre, Singapore 648886."
-    - text: "The bank branch in Bugis Junction can be found at 63 Jurong West Central 3, Jurong Point Shopping Centre, Basement 1 #B1-47/48/49/50, Singapore 648331."
-    - text: "You can find the bank branch in Tiong Bahru at 1 Jalan Anak Bukit, #01-19/20, Bukit Timah Plaza, Singapore 588996."
-    - text: "There are several bank branches near Clarke Quay. One of them is located at 900 South Woodlands Drive, #02-01, Woodlands Civic Centre, Singapore 730900."
-    - text: "The bank branch in Holland Village is located at 1 Jalan Anak Bukit, #01-19/20, Bukit Timah Plaza, Singapore 588996."
-    - text: "The nearest bank branch in Jurong East is at 1 Jurong West Central 2, #B1-20, Jurong Point Shopping Centre, Singapore 648886."
-    - text: "You can visit the bank branch located in Sentosa at 1 Sentosa Gateway, #01-01, Resorts World Sentosa, Singapore 098270."
-  utter_apply_credit_cards:
-    - text: "To apply for a credit card online, visit our website and look for the credit card section. Click on 'Apply Now' and follow the prompts."
-    - text: "The steps to submit a credit card application typically include filling out an online form with your personal and financial information."
-    - text: "When applying for a credit card, you'll usually need to provide your name, address, income, and Social Security number."
-    - text: "After submitting your application, you should receive a confirmation email or notification indicating that your application has been submitted successfully."
-    - text: "Eligibility criteria for credit cards can vary, but generally, you need to be at least 18 years old and have a steady income."
-    - text: "To find a credit card with a low interest rate, research different offers online and compare their annual percentage rates (APRs) before applying."
-    - text: "You can track the status of your credit card application by logging into your account on the bank's website or calling customer service."
-    - text: "If you encounter issues while applying, check the bank's FAQ section or contact their customer support for assistance."
-    - text: "Yes, many credit cards are designed for students or those with no credit history. Look for student credit cards that offer easier approval."
-  utter_customer_support:
-    - text: "The customer service hotline is 1800-123-4567 for local inquiries."
-    - text: "Request an escalation through customer service or the bank's complaint portal."
-    - text: "Yes, call the 24/7 hotline to report and block your lost card immediately."
-    - text: "Dial the overseas customer service number +65-123-4567 for assistance."
-    - text: "Customer inquiries can be sent to support@bankname.com."
-  utter_feedback:
-    - text: "You can provide feedback via our website or mobile app."
-    - text: "Sure! Please use the feedback form on our website or app."
-    - text: "Feedback can be submitted through our customer service portal or app."
-    - text: "You can share your suggestions via the feedback section on our website."
-    - text: "We value your feedback! Please share it on our feedback platform online."
-  utter_fraud_prevention:
-    - text: "Call the bank's fraud hotline immediately to report suspicious activities."
-    - text: "Phishing scams often involve fake emails or messages asking for personal details."
-    - text: "The bank uses encryption and two-factor authentication to secure online transactions."
-    - text: "2FA adds an extra layer of security by requiring a one-time password for transactions."
-    - text: "Call customer service or use internet banking to freeze your account temporarily."
-  utter_general_faqs:
-    - text: "Most branches are closed on public holidays; check specific branch timings online."
-    - text: "Update your contact details via internet banking or at any branch."
-    - text: "Yes, replacement cheque books can be requested via internet banking."
-    - text: "Exchange rates are updated daily; check the bank's website or mobile app for details."
-    - text: "Yes, student accounts with no minimum balance are available for eligible customers."
   utter_goodbye:
     - text: "Goodbye! Have a great day!"
     - text: "Bye! Take care!"
@@ -92,41 +38,24 @@ responses:
     - text: "Good morning! What can I do for you today?"
     - text: "Good afternoon! How can I assist you?"
     - text: "Hey! How can I help you?"
-  utter_home_loans:
-    - text: "To apply for a home loan, you typically need documents such as proof of income, tax returns, bank statements, and identification."
-    - text: "You can check your eligibility for a home loan by reviewing your credit score and income level, or by using online eligibility calculators provided by lenders."
-    - text: "The process for applying for a home loan online usually involves filling out an application form on the lender's website and submitting the required documents."
-    - text: "Yes, there may be fees associated with applying for a home loan, such as application fees, appraisal fees, and closing costs. Be sure to ask your lender for a breakdown."
-    - text: "The approval time for a home loan can vary, but it typically takes anywhere from a few days to several weeks, depending on the lender and your financial situation."
-    - text: "While having a low credit score can make it more challenging to get approved for a home loan, some lenders offer options for borrowers with lower scores."
-    - text: "First-time buyers often have access to special loan programs, such as FHA loans or state-sponsored assistance programs, which can offer lower down payments."
-    - text: "To compare different home loan offers, look at the interest rates, terms, fees, and any special features like prepayment options before making a decision."
-    - text: "Yes, applying for a home loan with a co-borrower can strengthen your application, especially if the co-borrower has a good credit score and stable income."
-    - text: "If your home loan application is denied, review the reasons provided by the lender, improve your financial situation, and consider reapplying or seeking a different lender."
-  utter_payment_systems:
-    - text: "Log in to internet banking or the mobile app and select 'PayNow' to transfer funds."
-    - text: "The daily FAST transfer limit is $200,000, adjustable via banking settings."
-    - text: "Submit a GIRO application via your bank's mobile or internet banking platform."
-    - text: "Overseas transfer fees vary but typically start from $10 per transaction."
-    - text: "Yes, future-dated PayNow transfers can be scheduled via mobile or internet banking."
-  utter_product_offerings:
-    - text: "Fixed deposit interest rates start from 0.5% per annum, depending on the tenure."
-    - text: "Visit a branch with all account holders and their identification documents."
-    - text: "The bank offers stocks, mutual funds, and savings bonds as investment options."
-    - text: "The minimum deposit for a fixed deposit account is $1,000."
-    - text: "Yes, travel insurance can be applied for via the bank's website or mobile app."
-  utter_regulations:
-    - text: "KYC ensures customer identity verification to comply with legal regulations."
-    - text: "The bank complies with MAS by following guidelines on security and transparency."
-    - text: "Transactions above $20,000 must be reported to the authorities as per MAS rules."
-    - text: "The bank safeguards customer data under the PDPA and its internal policies."
-    - text: "Deposits are insured up to $75,000 per account under the SDIC scheme."
   utter_thank_you:
     - text: "You're welcome! Let me know if you need anything else."
     - text: "Happy to help!"
     - text: "My pleasure! Is there anything else I can assist you with?"
     - text: "You're most welcome!"
     - text: "Anytime! Feel free to ask if you have more questions."
+  utter_feedback_rating:
+    - text: "On a scale of 1-5, how would you rate your experience?"
+    - text: "How would you rate your overall experience on a scale of 1 to 5?"
+    - text: "Please rate your experience from 1 to 5, with 1 being poor and 5 being excellent."
+    - text: "On a scale of 1-5, how satisfied are you with our service?"
+    - text: "Can you rate your experience with us from 1 to 5, where 1 is the lowest and 5 is the highest?"
+  utter_feedback_message:
+    - text: "Would you like to add any comments to your feedback?"
+    - text: "Do you have any additional comments you'd like to share?"
+    - text: "Is there anything else you'd like to add to your feedback?"
+    - text: "Would you like to provide any further comments or suggestions?"
+    - text: "Do you have any extra feedback or remarks you'd like to include?"
 
 slots:
   user_id:
@@ -139,8 +68,20 @@ slots:
     influence_conversation: false
     mappings:
       - type: custom
-
+  rating:
+    type: text
+    mappings:
+      - type: from_text
+  feedback_message:
+    type: text
+    mappings:
+      - type: from_text
 actions:
   - action_answer_banking_question
   - action_check_balance
   - action_custom_fallback
+  - action_submit_feedback
+  
+regex:
+  user_id: "[0-9]{5}"
+  rating: "^[1-5]$"
