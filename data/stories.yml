@@ -1,46 +1,7 @@
 version: "3.1"
 
 stories:
-- steps:
-  - intent: reset_password
-  - action: utter_reset_password
-  story: Handle reset_password query
-- steps:
-  - intent: apply_credit_cards
-  - action: utter_apply_credit_cards
-  story: Handle apply_credit_cards query
-- steps:
-  - intent: home_loans
-  - action: utter_home_loans
-  story: Handle home_loans query
-- steps:
-  - intent: branch_locations
-  - action: utter_branch_locations
-  story: Handle branch_locations query
-- steps:
-  - intent: payment_systems
-  - action: utter_payment_systems
-  story: Handle payment_systems query
-- steps:
-  - intent: fraud_prevention
-  - action: utter_fraud_prevention
-  story: Handle fraud_prevention query
-- steps:
-  - intent: customer_support
-  - action: utter_customer_support
-  story: Handle customer_support query
-- steps:
-  - intent: product_offerings
-  - action: utter_product_offerings
-  story: Handle product_offerings query
-- steps:
-  - intent: regulations
-  - action: utter_regulations
-  story: Handle regulations query
-- steps:
-  - intent: general_faqs
-  - action: utter_general_faqs
-  story: Handle general_faqs query
+
 - steps:
   - intent: greetings
   - action: utter_greetings
@@ -53,10 +14,6 @@ stories:
   - intent: goodbye
   - action: utter_goodbye
   story: Handle goodbye query
-- steps:
-  - intent: feedback
-  - action: utter_feedback
-  story: Handle feedback query
 - story: Check balance flow
   steps:
   - intent: check_balance
@@ -68,3 +25,8 @@ stories:
       - user_id:
   - action: action_check_balance
   - action: utter_provide_balance
+
+  - steps:
+      - intent: faq
+      - action: action_custom_fallback
+    story: Handle faq  
