@@ -34,21 +34,21 @@ pipeline:
   - name: ResponseSelector
     epochs: 100
   - name: FallbackClassifier
-    threshold: 0.9
+    threshold: 0.7
     ambiguity_threshold: 0.1
 
 policies:
   - name: RulePolicy
     core_fallback_action_name: "action_custom_fallback"
-    core_fallback_threshold: 0.9
+    core_fallback_threshold: 0.7
     enable_fallback_prediction: True
   - name: MemoizationPolicy
     max_history: 5
   - name: TEDPolicy
     max_history: 5
     epochs: 100
-    nlu_threshold: 0.9
-    core_threshold: 0.9
+    nlu_threshold: 0.7
+    core_threshold: 0.7
 
 actions:
   - action_answer_banking_question
