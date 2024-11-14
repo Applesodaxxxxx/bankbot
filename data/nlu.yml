@@ -58,45 +58,136 @@ nlu:
       - I have some feedback for you.
       - I want to give feedback.
 
-  - intent: inform_rating
+  - intent: provide_rating
     examples: |
       - [1](rating)
-      - I would rate [5](rating)
-      - I would give it a [3](rating)
-      - My experience was a [4](rating)
-      - I rate it a [1](rating)
-      - [A rating of 2](rating)
-      - I’d give it a [five](rating)
-      - On a scale of 1 to 5, I would rate it [3](rating)
-      - My score is [4](rating)
-      - I give it a [five](rating)
-      - I’d rate it as a [2](rating)
+      - [2](rating)
+      - [3](rating)
+      - [4](rating)
+      - [5](rating)
 
-  - intent: inform_feedback
+  - intent: provide_feedback
     examples: |
-      - [The service was very helpful, but I think the website could be improved.](feedback_message)
-      - [I had a good experience overall, but I would appreciate quicker responses next time.](feedback_message)
-      - [Everything went smoothly, though I think the process could be a bit more streamlined.](feedback_message)
-      - [I enjoyed the experience, but there were some delays in the service that could be addressed.](feedback_message)
-      - [It was a good experience, though I would love to see more options available in the future.](feedback_message)
-      - [My experience was okay, nothing exceptional but not bad either.](feedback_message)
-      - [It was a decent experience, but there’s definitely room for improvement.](feedback_message)
-      - [The service was fine, but I expected a bit more in terms of efficiency.](feedback_message)
-      - [Overall, it was an average experience. Nothing stood out, but everything worked as expected.](feedback_message)
-      - [It was an okay experience, but some areas could definitely be improved.](feedback_message)
-      - [I wasn’t satisfied with the service, there were too many issues that weren't addressed.](feedback_message)
-      - [My experience was disappointing, and I expected better service.](feedback_message)
-      - [It was a poor experience overall, as there were delays and confusion during the process.](feedback_message)
-      - [I had several problems, and the service didn’t meet my expectations.](feedback_message)
-      - [I had a very frustrating experience. The service was slow and not helpful at all.](feedback_message)
-      - [Good job!](feedback_message)
-      - [Could be better.](feedback_message)
-      - [Not bad, but some areas need improvement.](feedback_message)
-      - [It was fine, but it could’ve been quicker.](feedback_message)
-      - [I’m satisfied overall, but there were a few hiccups.](feedback_message)
-      - [I didn’t get exactly what I was expecting, but it was okay.](feedback_message)
-
-
+      - The bot was very helpful.
+      - I liked the response.
+      - Could improve response time.
+      - No comments.
+      - I have no feedback.
+      - The service was great.
+      - I’m satisfied with the bot.
+      - It could be better.
+      - The bot didn’t answer my query.
+      - I am impressed by the bot's performance.
+      - It was okay, but there’s room for improvement.
+      - I don’t have any specific comments.
+      - Everything was perfect.
+      - The bot’s speed was good, but the answer wasn’t helpful.
+      - I wish it provided more details.
+      - I didn’t get the answer I needed.
+      - The interaction was smooth.
+      - The bot was a bit slow to respond.
+      - It worked well for me.
+      - There’s nothing to complain about.
+      - This was an excellent experience.
+      - I found the bot easy to use.
+      - The answers were not relevant to my question.
+      - It was confusing at times.
+      - The bot needs improvement.
+      - I’m happy with the interaction.
+      - I don’t have any feedback to give.
+      - The bot could provide more specific answers.
+      - I enjoyed the chat experience.
+      - I am disappointed with the bot.
+      - The response was not clear enough.
+      - It was fine overall.
+      - There’s nothing I’d change.
+      - The bot was polite and helpful.
+      - I would rate the experience as average.
+      - The bot didn’t seem to understand my question.
+      - It was better than I expected.
+      - The bot needs to improve its understanding of my intent.
+      - I appreciate how fast the response was.
+      - The bot should give more examples.
+      - The bot was helpful and quick to respond.
+      - The bot didn’t provide a satisfactory answer.
+      - I wish the answers were more detailed.
+      - I liked the simplicity of the responses.
+      - The bot’s language was too formal.
+      - The bot is doing a great job!
+      - It didn’t solve my problem.
+      - The bot was fast, but the response wasn’t clear.
+      - I have no specific feedback at the moment.
+      - I’m happy with the interaction overall.
+      - I didn’t get the help I was looking for.
+      - The bot exceeded my expectations.
+      - The experience could have been smoother.
+      - I feel like the bot didn’t understand me.
+      - It worked well, but it could use some improvements.
+      - I am very satisfied with the bot.
+      - The bot needs better understanding of context.
+      - Everything was handled perfectly.
+      - The bot didn’t address my issue fully.
+      - The conversation felt robotic.
+      - I found the experience intuitive and easy.
+      - The bot seemed repetitive in its responses.
+      - I didn’t get the clarity I wanted.
+      - It was a great experience overall.
+      - The bot was polite but didn’t answer my query.
+      - It could be more conversational.
+      - The bot was helpful and thorough.
+      - The experience was frustrating.
+      - The bot didn’t understand my question properly.
+      - I liked how fast it responded.
+      - The answers were good, but I needed more examples.
+      - It was quick, but the response wasn’t detailed.
+      - The bot was excellent and solved my query.
+      - I think it needs to improve its accuracy.
+      - I don’t have much to add right now.
+      - I enjoyed using the bot for this query.
+      - The bot should provide alternative solutions.
+      - The bot was accurate and fast.
+      - It felt like the bot was guessing my intent.
+      - The bot could have been more specific.
+      - It was easy to use and helpful.
+      - I appreciate the quick response time.
+      - The bot was slow, but the answers were okay.
+      - It worked as expected.
+      - I am very impressed by the bot’s ability.
+      - The bot didn’t provide enough details.
+      - The interaction was smooth but incomplete.
+      - I liked the experience overall.
+      - The bot didn’t really answer my question.
+      - It should offer more personalized responses.
+      - The bot gave a helpful answer.
+      - The bot should have understood my intent better.
+      - I had a good experience chatting with the bot.
+      - The response didn’t seem relevant.
+      - It was an enjoyable interaction.
+      - The bot wasn’t clear in its explanation.
+      - I got what I needed from the bot.
+      - It could be improved in terms of speed.
+      - The bot’s responses were repetitive.
+      - The experience was better than I expected.
+      - I liked the way the bot guided me.
+      - The bot should have provided examples.
+      - It was useful, but I expected more details.
+      - I didn’t get the answer I wanted, but it was a good try.
+      - The bot’s response didn’t make sense to me.
+      - It was a pleasant interaction overall.
+      - I found the bot to be very helpful.
+      - The bot’s explanation was too technical for me.
+      - It didn’t resolve my query, but it was polite.
+      - I found the answers to be very accurate.
+      - The bot was concise and to the point.
+      - It was better than other bots I’ve used.
+      - The bot struggled to understand my question.
+      - The response was good, but it wasn’t what I needed.
+      - The interaction was simple and effective.
+      - It needs to improve its natural language understanding.
+      - The bot met my expectations.
+      - I appreciated the clear instructions.
+      - The response wasn’t relevant to my query.
+      - The bot did an excellent job answering my question.
 
   - intent: faq
     examples: |
