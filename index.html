@@ -124,136 +124,60 @@
     </div>
     <button class="chat-button" onclick="toggleChat()">💬</button>
 
-    <script>
-        let feedbackPhase = false; 
-        let collectingRating = true; 
+        <script>
+            async function sendQuery() {
+                const queryText = document.getElementById('query').value.trim();
+                if (!queryText) return;
 
-        async function sendQuery() {
-            const queryText = document.getElementById('query').value.trim();
-            if (!queryText) return;
+                document.getElementById('query').value = '';
 
-            document.getElementById('query').value = '';
+                const chatBox = document.getElementById('chat-box');
 
-            const chatBox = document.getElementById('chat-box');
+             
+                displayUserMessage(queryText, chatBox);
 
-            // Handle feedback
-            if (feedbackPhase) {
-                if (collectingRating) {
-                    
-                    displayUserMessage(queryText, chatBox);
-                    await handleRating(queryText, chatBox);
-                } else {
-                    
-                    displayUserMessage(queryText, chatBox);
-                    await handleFeedback(queryText, chatBox);
+                // Fetch bot response for the user query
+                try {
+                    const response = await fetch('http://127.0.0.1:5000/ask', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ query: queryText }),
+                    });
+
+                    const data = await response.json();
+                    displayBotMessage(data.answer || "I couldn't understand that. Please try again.", chatBox);
+                } catch (error) {
+                    displayBotMessage("Sorry, there was an issue connecting to the server.", chatBox);
                 }
-                return;
             }
 
-           
-            displayUserMessage(queryText, chatBox);
-
-            
-            if (queryText.toLowerCase().includes("end chat") || queryText.toLowerCase().includes("goodbye")) {
-                feedbackPhase = true;
-                promptForRating(chatBox);
-                return;
+            function displayUserMessage(message, chatBox) {
+                const userMessage = document.createElement('div');
+                userMessage.classList.add('user-message');
+                userMessage.innerText = message;
+                chatBox.appendChild(userMessage);
+                chatBox.scrollTop = chatBox.scrollHeight;
             }
 
-            // Fetch bot response for the user's query
-            try {
-                const response = await fetch('http://127.0.0.1:5000/ask', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ query: queryText }),
-                });
-
-                const data = await response.json();
-                displayBotMessage(data.answer || "I couldn't understand that. Please try again.", chatBox);
-            } catch (error) {
-                displayBotMessage("Sorry, there was an issue connecting to the server.", chatBox);
-            }
-        }
-
-        function promptForRating(chatBox) {
-            displayBotMessage("We value your feedback! Could you kindly rate your experience with us (1-5)?", chatBox);
-        }
-
-        async function handleRating(rating, chatBox) {
-            // Validate the rating
-            if (!rating || isNaN(rating) || rating < 1 || rating > 5) {
-                displayBotMessage("Please provide a rating between 1 and 5.", chatBox);
-                return;
+            function displayBotMessage(message, chatBox) {
+                const botMessage = document.createElement('div');
+                botMessage.classList.add('bot-message');
+                botMessage.innerText = message;
+                chatBox.appendChild(botMessage);
+                chatBox.scrollTop = chatBox.scrollHeight;
             }
 
-            // Temporarily store the rating
-            sessionStorage.setItem('rating', rating);
-            collectingRating = false;
+            function toggleChat() {
+                const chatContainer = document.querySelector('.chat-container');
+                chatContainer.style.display = chatContainer.style.display === 'none' || chatContainer.style.display === '' ? 'block' : 'none';
+            }
 
-            displayBotMessage("Thank you! If you’d like, please share any additional comments or suggestions to help us improve.", chatBox);
-        }
-
-        async function handleFeedback(feedback, chatBox) {
-            const rating = sessionStorage.getItem('rating');
-
-            // Send rating and feedback to the backend
-            await fetch('http://127.0.0.1:5000/submit_feedback', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    rating,
-                    message: feedback || "No additional comments provided",
-                }),
-            });
-
-           
-            displayBotMessage("Thank you for your valuable feedback! We truly appreciate your time.", chatBox);
-
-            
-            feedbackPhase = false;
-            collectingRating = true;
-            sessionStorage.removeItem('rating');
-        }
-
-        function displayUserMessage(message, chatBox) {
-            const userMessage = document.createElement('div');
-            userMessage.classList.add('user-message');
-            userMessage.innerText = message;
-            chatBox.appendChild(userMessage);
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-
-        function displayBotMessage(message, chatBox) {
-            const botMessage = document.createElement('div');
-            botMessage.classList.add('bot-message');
-            botMessage.innerText = message;
-            chatBox.appendChild(botMessage);
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-
-        function toggleChat() {
-            const chatContainer = document.querySelector('.chat-container');
-            chatContainer.style.display = chatContainer.style.display === 'none' || chatContainer.style.display === '' ? 'block' : 'none';
-        }
-
-        document.getElementById('query').addEventListener('keypress', async function (e) {
-            if (e.key === 'Enter') {
-                if (feedbackPhase) {
-                    if (collectingRating) {
-                        displayUserMessage(e.target.value.trim(), document.getElementById('chat-box'));
-                        await handleRating(e.target.value.trim(), document.getElementById('chat-box'));
-                    } else {
-                        displayUserMessage(e.target.value.trim(), document.getElementById('chat-box'));
-                        await handleFeedback(e.target.value.trim(), document.getElementById('chat-box'));
-                    }
-                    document.getElementById('query').value = ''; 
-                } else {
+            document.getElementById('query').addEventListener('keypress', async function (e) {
+                if (e.key === 'Enter') {
                     sendQuery();
                 }
-            }
-        });
+            });
+        </script>
 
-
-    </script>
 </body>
 </html>
