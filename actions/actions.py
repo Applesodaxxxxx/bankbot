@@ -1,13 +1,15 @@
 import os
+import csv
 import json
 import pandas as pd
+from typing import Text, Dict, Any, List
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import UserUtteranceReverted
+from rasa_sdk.events import SlotSet
 
-# File paths
 base_dir = os.path.dirname(os.path.abspath(__file__))
 json_file_path = os.path.join(base_dir, "knowledge_base.json")
 csv_file_path = os.path.join(base_dir, "user_balance.csv")
@@ -46,7 +48,7 @@ def initialize_tfidf(kb):
 
 tfidf_vectorizer, tfidf_matrix = initialize_tfidf(knowledge_base)
 
-# Function to retrieve best match from knowledge base
+# Get best match from knowledge base
 def retrieve_best_match(query):
     query_vector = tfidf_vectorizer.transform([query])
     cosine_similarities = cosine_similarity(query_vector, tfidf_matrix).flatten()
@@ -74,10 +76,9 @@ class ActionCustomFallback(Action):
             response = retrieve_best_match(user_query)
             dispatcher.utter_message(text=response)
         except Exception as e:
-            dispatcher.utter_message(text="An error occurred while processing your query.")
+            dispatcher.utter_message(text="An error occurred. Please try again later.")
             print(f"Error: {e}")
 
-        # Optionally revert user utterance to allow retry
         return [UserUtteranceReverted()]
 
 # Check Balance Action
@@ -93,7 +94,6 @@ class ActionCheckBalance(Action):
             return []
 
         try:
-            # Assuming user_data is a pandas DataFrame loaded from user_balance.csv
             user_record = user_data[user_data["user_id"] == int(user_id)]
             if not user_record.empty:
                 balance = user_record["balance"].iloc[0]
@@ -105,3 +105,31 @@ class ActionCheckBalance(Action):
             print(f"Error: {e}")
         
         return []
+
+class ActionSaveFeedback(Action):
+    def name(self) -> Text:
+        return "action_save_feedback"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        # Get rating and feedback message from the slots
+        rating = tracker.get_slot("rating")
+        feedback_message = tracker.get_slot("feedback_message")
+
+        if not rating or not rating.isdigit() or not (1 <= int(rating) <= 5):
+            dispatcher.utter_message(text="Invalid rating. Please provide a number between 1 and 5.")
+            return []
+
+        feedback_file_path = "feedback.csv"
+        try:
+            with open(feedback_file_path, mode='a', newline='', encoding='utf-8') as file:
+                writer = csv.writer(file)
+                writer.writerow([rating, feedback_message or "No comments provided"])
+            dispatcher.utter_message(response="utter_feedback_thank_you")
+        except Exception as e:
+            dispatcher.utter_message(text="An error occurred. Please try again later.")
+            print(f"Error: {e}")
+
+        return [SlotSet("rating", None), SlotSet("feedback_message", None)]
