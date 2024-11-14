@@ -1,32 +1,49 @@
 version: "3.1"
 
 stories:
-
-- steps:
+- story: Handle greetings query
+  steps:
   - intent: greetings
   - action: utter_greetings
-  story: Handle greetings query
-- steps:
+
+- story: Handle thank_you query
+  steps:
   - intent: thank_you
   - action: utter_thank_you
-  story: Handle thank_you query
-- steps:
+
+- story: Handle goodbye query
+  steps:
   - intent: goodbye
   - action: utter_goodbye
-  story: Handle goodbye query
+
 - story: Check balance flow
   steps:
   - intent: check_balance
   - action: utter_ask_user_id
   - intent: inform
     entities:
-      - user_id:
+    - user_id
   - slot_was_set:
-      - user_id:
+    - user_id
   - action: action_check_balance
   - action: utter_provide_balance
 
-  - steps:
-      - intent: faq
-      - action: action_custom_fallback
-    story: Handle faq  
+- story: Handle faq
+  steps:
+  - intent: faq
+  - action: action_custom_fallback
+
+- story: User provides feedback
+  steps:
+    - intent: feedback
+    - action: utter_ask_rating
+    - intent: provide_rating
+      entities:
+        - rating: "5"
+    - slot_was_set:
+        - expecting_feedback: true
+    - action: utter_ask_feedback_message
+    - intent: provide_feedback
+    - slot_was_set:
+        - expecting_feedback: false
+    - action: action_save_feedback
