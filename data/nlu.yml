@@ -1,153 +1,277 @@
 version: "3.1"
 nlu:
-- intent: check_balance
-  examples: |
-    - I want to check my account balance.
-    - What's my balance right now?
-    - Can you show me the balance for my account?
-    - How much money do I have in my account?
-    - What’s my balance for user ID [12345](user_id)?
-    - Please check the balance for user ID [67890](user_id).
-    - Can you find my account balance?
-    - Tell me my current balance.
-    - Get my account balance.
-    - How much do I have in my savings account?
+  - intent: check_balance
+    examples: |
+      - I want to check my account balance.
+      - What's my balance right now?
+      - Can you show me the balance for my account?
+      - How much money do I have in my account?
+      - What’s my balance for user ID [12345](user_id)?
+      - Please check the balance for user ID [67890](user_id).
+      - Can you find my account balance?
+      - Tell me my current balance.
+      - Get my account balance.
+      - How much do I have in my savings account?
 
-- intent: reset_password
-  examples: |
-    - How do I reset my bank account password?
-    - What steps do I need to take to change my bank account password?
-    - How can I recover my forgotten bank account password?
-    - What should I do if I can't remember my bank password?
-    - Is there a way to reset my online banking password?
-    - How do I create a new password for my bank account?
-    - What information do I need to provide to reset my password?
-    - How long does it take to reset my bank account password?
-    - What if I receive an error when trying to reset my password?
-    - How can I ensure my new bank password is secure?
-    - Can I reset my password through customer service?
+  - intent: greetings
+    examples: |
+      - Hi
+      - Hello
+      - Good morning
+      - Good afternoon
+      - Hey there
 
-- intent: apply_credit_cards
-  examples: |
-    - How do I apply for a credit card online?
-    - What steps should I follow to submit a credit card application?
-    - Can I apply for a credit card through my bank's mobile app?
-    - What information do I need to provide when applying for a credit card?
-    - How do I know if my credit card application has been submitted successfully?
-    - Are there specific eligibility criteria I need to meet to apply for a credit card?
-    - What is the best way to apply for a credit card with a low interest rate?
-    - How can I track the status of my credit card application?
-    - What should I do if I encounter issues while applying for a credit card?
-    - Can I apply for a credit card if I am a student or have no credit history?
+  - intent: thank_you
+    examples: |
+      - Thanks
+      - Thank you
+      - Appreciate it
+      - Many thanks
+      - You're the best
 
-- intent: home_loans
-  examples: |
-    - What documents do I need to apply for a home loan?
-    - How can I check my eligibility for a home loan?
-    - What is the process for applying for a home loan online?
-    - Are there any fees associated with applying for a home loan?
-    - How long does it take to get approved for a home loan?
-    - Can I apply for a home loan if I have a low credit score?
-    - What types of home loans are available for first-time buyers?
-    - How do I compare different home loan offers before applying?
-    - Is it possible to apply for a home loan with a co-borrower?
-    - What should I do if my home loan application is denied?
+  - intent: goodbye
+    examples: |
+      - Goodbye
+      - Bye
+      - See you later
+      - Take care
+      - Talk to you soon
 
-- intent: branch_locations
-  examples: |
-    - Where is the nearest bank branch in Orchard Road?
-    - Can you tell me the location of the bank branch in Marina Bay Sands?
-    - What is the address of the bank branch at Raffles Place?
-    - Is there a bank branch in VivoCity, and what are its operating hours?
-    - Where can I find the bank branch in Bugis Junction?
-    - What is the location of the bank branch in Tiong Bahru?
-    - Are there any bank branches near Clarke Quay?
-    - Can you provide the address for the bank branch in Holland Village?
-    - Where is the nearest bank branch in Jurong East?
-    - What are the details for the bank branch located in Sentosa?
+  - intent: inform
+    examples: |
+      - [12345](user_id).
+      - My user ID is [67890](user_id).
+      - It's [54321](user_id).
+      - Here is my user ID [54321](user_id).
 
-- intent: payment_systems
-  examples: |
-    - How do I transfer funds using PayNow?
-    - What is the daily limit for FAST transfers?
-    - Can I schedule future-dated PayNow transfers?
-    - How do I apply for GIRO?
-    - What are the fees for overseas transfers?
+  - intent: feedback
+    examples: |
+      - How can I give feedback?
+      - I want to leave feedback.
+      - Where can I submit feedback?
+      - How do I share my suggestions?
+      - I have feedback about the service.
+      - end chat
+      - I want to end this chat.
+      - I have no more questions.
+      - How to give feedback?
+      - I have some feedback for you.
+      - I want to give feedback.
 
-- intent: fraud_prevention
-  examples: |
-    - How can I report suspicious activities?
-    - What are phishing scams?
-    - Tell me about two-factor authentication.
-    - How do I freeze my account temporarily?
-    - How does the bank secure online transactions?
+  - intent: inform_rating
+    examples: |
+      - [1](rating)
+      - I would rate [5](rating)
+      - I would give it a [3](rating)
+      - My experience was a [4](rating)
+      - I rate it a [1](rating)
+      - [A rating of 2](rating)
+      - I’d give it a [five](rating)
+      - On a scale of 1 to 5, I would rate it [3](rating)
+      - My score is [4](rating)
+      - I give it a [five](rating)
+      - I’d rate it as a [2](rating)
 
-- intent: customer_support
-  examples: |
-    - What is the customer service hotline?
-    - How can I escalate an issue?
-    - Can I contact customer support while overseas?
-    - Where can I send customer inquiries?
-    - How do I report a lost card?
+  - intent: inform_feedback
+    examples: |
+      - [The service was very helpful, but I think the website could be improved.](feedback_message)
+      - [I had a good experience overall, but I would appreciate quicker responses next time.](feedback_message)
+      - [Everything went smoothly, though I think the process could be a bit more streamlined.](feedback_message)
+      - [I enjoyed the experience, but there were some delays in the service that could be addressed.](feedback_message)
+      - [It was a good experience, though I would love to see more options available in the future.](feedback_message)
+      - [My experience was okay, nothing exceptional but not bad either.](feedback_message)
+      - [It was a decent experience, but there’s definitely room for improvement.](feedback_message)
+      - [The service was fine, but I expected a bit more in terms of efficiency.](feedback_message)
+      - [Overall, it was an average experience. Nothing stood out, but everything worked as expected.](feedback_message)
+      - [It was an okay experience, but some areas could definitely be improved.](feedback_message)
+      - [I wasn’t satisfied with the service, there were too many issues that weren't addressed.](feedback_message)
+      - [My experience was disappointing, and I expected better service.](feedback_message)
+      - [It was a poor experience overall, as there were delays and confusion during the process.](feedback_message)
+      - [I had several problems, and the service didn’t meet my expectations.](feedback_message)
+      - [I had a very frustrating experience. The service was slow and not helpful at all.](feedback_message)
+      - [Good job!](feedback_message)
+      - [Could be better.](feedback_message)
+      - [Not bad, but some areas need improvement.](feedback_message)
+      - [It was fine, but it could’ve been quicker.](feedback_message)
+      - [I’m satisfied overall, but there were a few hiccups.](feedback_message)
+      - [I didn’t get exactly what I was expecting, but it was okay.](feedback_message)
 
-- intent: product_offerings
-  examples: |
-    - What are the fixed deposit interest rates?
-    - Does the bank offer travel insurance?
-    - What investment options do you provide?
-    - What is the minimum deposit for a fixed deposit account?
-    - How do I apply for savings bonds?
 
-- intent: regulations
-  examples: |
-    - What is KYC?
-    - How does the bank comply with MAS guidelines?
-    - Are deposits insured under SDIC?
-    - What is the limit for transactions that must be reported to MAS?
-    - How does the bank protect customer data under PDPA?
 
-- intent: general_faqs
-  examples: |
-    - Are branches open on public holidays?
-    - How do I update my contact details?
-    - Can I request a replacement cheque book online?
-    - Where can I check exchange rates?
-    - Are there accounts with no minimum balance for students?
-
-- intent: greetings
-  examples: |
-    - Hi
-    - Hello
-    - Good morning
-    - Good afternoon
-    - Hey there
-
-- intent: thank_you
-  examples: |
-    - Thanks
-    - Thank you
-    - Appreciate it
-    - Many thanks
-    - You're the best
-
-- intent: goodbye
-  examples: |
-    - Goodbye
-    - Bye
-    - See you later
-    - Take care
-    - Talk to you soon
-
-- intent: feedback
-  examples: |
-    - I want to leave feedback.
-    - How can I share my suggestions?
-    - Where can I provide feedback?
-    - I’d like to leave a review.
-    - Can I send feedback through the app?
-
-- intent: inform
-  examples: |
-    - [12345](user_id).
-    - My user ID is [67890](user_id).
-    - It's [54321](user_id).
+  - intent: faq
+    examples: |
+      - I've forgotten my username, how can I retrieve it?
+      - What is the process to reset my online banking password?
+      - What are the requirements to open a savings account?
+      - How do I close my bank account?
+      - What are the daily ATM withdrawal limits?
+      - What should I do if I suspect fraudulent activity on my account?
+      - Can I set up automatic transfers between my accounts?
+      - What is the minimum balance requirement for a checking account?
+      - How do I update my personal information?
+      - What fees are associated with my account?
+      - How can I order checks for my account?
+      - What is the process for disputing a transaction?
+      - Can I access my account from abroad?
+      - How do I enable two-factor authentication?
+      - What should I do if I lose my debit card?
+      - How can I view my transaction history?
+      - Is there a fee for using ATMs outside of the bank's network?
+      - How do I apply for a credit card?
+      - What is the interest rate on my savings account?
+      - Can I link multiple accounts to my online banking?
+      - How do I set up alerts for my account?
+      - What identification do I need to open a joint account?
+      - How can I transfer money to another bank?
+      - What is the process for closing a joint account?
+      - How do I report a lost or stolen credit card?
+      - Can I change my account type online?
+      - What are the benefits of having a premium account?
+      - How do I set up a direct deposit?
+      - What should I do if my account is overdrawn?
+      - How can I access my account statements?
+      - What is the process for applying for a loan?
+      - How do I change my online banking password?
+      - Can I set spending limits on my debit card?
+      - What happens if I forget my online banking password?
+      - How do I contact customer service?
+      - How do I report a lost credit card?
+      - Can I increase my credit card limit temporarily?
+      - How can I check my credit card reward points?
+      - Am I eligible for a credit card?
+      - What do I need to apply for a credit card?
+      - What is the interest-free period for credit card payments?
+      - How long does it take to get my credit card approved?
+      - What should I do if my credit card is declined?
+      - Can I set up automatic payments for my credit card?
+      - What is the annual fee for my credit card?
+      - How can I redeem my credit card rewards?
+      - What happens if I miss a credit card payment?
+      - Can I use my credit card overseas?
+      - How do I increase my credit card limit?
+      - What is a balance transfer?
+      - How can I check my credit card statement?
+      - What should I do if I find an unauthorized charge on my credit card?
+      - Are there any rewards for using my credit card?
+      - How do I cancel my credit card?
+      - What is the grace period for credit card payments?
+      - Can I get a supplementary credit card?
+      - What is a credit card cash advance?
+      - How do I change my credit card billing address?
+      - What should I do if my credit card is damaged?
+      - Can I use my credit card for online purchases?
+      - What is the difference between a secured and unsecured credit card?
+      - How can I avoid credit card debt?
+      - What is the process for disputing a credit card charge?
+      - Are there any promotional offers for new credit card applicants?
+      - How do I set spending alerts for my credit card?
+      - What is the impact of closing a credit card on my credit score?
+      - How can I find out my credit card's interest rate?
+      - What should I do if I forget my credit card PIN?
+      - Can I use my credit card to pay bills?
+      - What documents are required for a home loan application?
+      - What is the interest rate for personal loans?
+      - How can I refinance my home loan?
+      - What are the repayment terms for a car loan?
+      - Can I prepay my loan without penalty?
+      - What is the maximum loan amount I can apply for?
+      - How long does it take to process a loan application?
+      - What is a secured loan?
+      - Can I apply for a loan if I have bad credit?
+      - What is the difference between fixed and variable interest rates?
+      - Are there any fees associated with taking out a loan?
+      - How can I improve my chances of loan approval?
+      - What is a loan-to-value ratio?
+      - Can I change my loan repayment schedule?
+      - What happens if I default on my loan?
+      - How do I calculate my monthly loan payments?
+      - What is a personal loan used for?
+      - Do I need insurance for my loan?
+      - What is a pre-approval for a loan?
+      - Can I pay off my loan early?
+      - What is a debt-to-income ratio?
+      - How do I know if I qualify for a loan?
+      - What is a loan origination fee?
+      - Can I transfer my loan to another lender?
+      - What is the purpose of a loan agreement?
+      - How can I track my loan balance?
+      - What is a home equity loan?
+      - What should I do if I can't make a loan payment?
+      - How do I apply for a student loan?
+      - What is a bridge loan?
+      - Can I get a loan without a credit check?
+      - What is the difference between a loan and a line of credit?
+      - How do I find the best loan rates?
+      - What is a fixed-rate loan?
+      - How can I consolidate my loans?
+      - Where is the nearest branch to Orchard Road?
+      - What are the operating hours for the main branch?
+      - Which branches are open on Saturdays?
+      - Is there a branch at Changi Airport?
+      - How can I find an ATM near Marina Bay?
+      - Where can I find the nearest branch to Bugis?
+      - What are the operating hours for the branch at Raffles Place?
+      - Are there any branches open on public holidays?
+      - Is there a branch in VivoCity?
+      - How do I find the nearest ATM to Sentosa?
+      - Where is the closest branch to Tanjong Pagar?
+      - What are the weekend hours for the branch at Jurong Point?
+      - Is there a branch at the Singapore Botanic Gardens?
+      - How can I locate a branch near my workplace?
+      - Where is the nearest branch to Orchard Gateway?
+      - What are the operating hours for the branch at Holland Village?
+      - Which branches are open late on weekdays?
+      - Is there a branch at Marina Bay Sands?
+      - How can I find an ATM near East Coast Park?
+      - Where is the nearest branch to Little India?
+      - What are the operating hours for the branch at Paya Lebar?
+      - Are there any branches open on Sundays?
+      - Is there a branch in the CBD area?
+      - How do I find the nearest branch to my home?
+      - Where is the closest branch to Bukit Timah?
+      - What are the weekend hours for the branch at Compass One?
+      - Is there a branch at the Singapore Flyer?
+      - How can I locate an ATM near my location?
+      - Where is the nearest branch to Clarke Quay?
+      - What are the operating hours for the branch at Bedok Mall?
+      - Which branches offer extended hours during the week?
+      - Is there a branch at the National Gallery?
+      - How can I find a branch with a drive-thru?
+      - Where is the nearest branch to Novena?
+      - What are the operating hours for the branch at Suntec City?
+      - Are there any branches with 24-hour ATMs?
+      - How do I make a PayNow transfer?
+      - What is the daily transfer limit for FAST payments?
+      - How can I set up a GIRO arrangement?
+      - What are the fees for overseas bank transfers?
+      - Can I schedule a future-dated PayNow transfer?
+      - How do I make a fund transfer using PayLah?
+      - What is the processing time for FAST payments?
+      - Can I use my credit card for online payments?
+      - How do I cancel a scheduled payment?
+      - What is the maximum amount I can transfer via PayNow?
+      - Are there any fees for using PayNow?
+      - How can I set up recurring payments?
+      - What information do I need for an overseas transfer?
+      - Can I transfer money to a foreign bank account?
+      - How do I check the status of my payment?
+      - What is the difference between GIRO and PayNow?
+      - Can I use PayNow for business transactions?
+      - How do I report a payment issue?
+      - What should I do if I entered the wrong payment amount?
+      - How can I link my bank account to a payment app?
+      - What are the security measures for online payments?
+      - Can I transfer money using my mobile phone?
+      - What happens if my payment is delayed?
+      - How do I set up a payment alert?
+      - Is there a limit on how many payments I can make in a day?
+      - How do I dispute a payment transaction?
+      - Can I use my debit card for online purchases?
+      - What is the cut-off time for same-day transfers?
+      - How do I update my payment method in an app?
+      - What should I do if my payment is declined?
+      - Can I make payments using QR codes?
+      - How do I enable contactless payments?
+      - What is the process for setting up a payment plan?
+      - Are there any limits on international transfers?
+      - How can I view my payment history?
