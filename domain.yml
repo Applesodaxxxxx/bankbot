@@ -9,13 +9,12 @@ intents:
   - fallback
   - faq
   - feedback
-  - inform_rating
-  - inform_feedback
+  - provide_rating
+  - provide_feedback
 
 entities:
   - user_id
   - rating
-  - feedback_message
 
 responses:
   utter_ask_user_id:
@@ -44,18 +43,20 @@ responses:
     - text: "My pleasure! Is there anything else I can assist you with?"
     - text: "You're most welcome!"
     - text: "Anytime! Feel free to ask if you have more questions."
-  utter_feedback_rating:
+  utter_ask_rating:
     - text: "On a scale of 1-5, how would you rate your experience?"
     - text: "How would you rate your overall experience on a scale of 1 to 5?"
     - text: "Please rate your experience from 1 to 5, with 1 being poor and 5 being excellent."
     - text: "On a scale of 1-5, how satisfied are you with our service?"
     - text: "Can you rate your experience with us from 1 to 5, where 1 is the lowest and 5 is the highest?"
-  utter_feedback_message:
+  utter_ask_feedback_message:
     - text: "Would you like to add any comments to your feedback?"
     - text: "Do you have any additional comments you'd like to share?"
     - text: "Is there anything else you'd like to add to your feedback?"
     - text: "Would you like to provide any further comments or suggestions?"
     - text: "Do you have any extra feedback or remarks you'd like to include?"
+  utter_feedback_thank_you:
+    - text: "Thank you for your feedback!"
 
 slots:
   user_id:
@@ -63,24 +64,37 @@ slots:
     influence_conversation: true
     mappings:
       - type: from_text
+
   balance:
     type: text
     influence_conversation: false
     mappings:
       - type: custom
+
   rating:
     type: text
+    influence_conversation: false
     mappings:
-      - type: from_text
+      - type: from_entity
+        entity: rating
+
   feedback_message:
     type: text
+    influence_conversation: false
     mappings:
       - type: from_text
+
+  expecting_feedback:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
 actions:
   - action_answer_banking_question
   - action_check_balance
   - action_custom_fallback
-  - action_submit_feedback
+  - action_save_feedback
   
 regex:
   user_id: "[0-9]{5}"
