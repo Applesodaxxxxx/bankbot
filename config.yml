@@ -25,7 +25,7 @@ pipeline:
     min_ngram: 1
     max_ngram: 4
   - name: DIETClassifier
-    epochs: 150
+    epochs: 100
     batch_size: 32
     intent_classification: True
     entity_recognition: True
@@ -40,20 +40,21 @@ pipeline:
 policies:
   - name: RulePolicy
     core_fallback_action_name: "action_custom_fallback"
-    core_fallback_threshold: 0.7
+    core_fallback_threshold: 0.9
     enable_fallback_prediction: True
   - name: MemoizationPolicy
     max_history: 5
   - name: TEDPolicy
     max_history: 5
     epochs: 100
-    nlu_threshold: 0.4
-    core_threshold: 0.4
+    nlu_threshold: 0.9
+    core_threshold: 0.9
 
 actions:
   - action_answer_banking_question
   - action_check_balance
   - action_custom_fallback
+  - action_submit_feedback
 
 
 
