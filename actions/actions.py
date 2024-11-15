@@ -88,6 +88,7 @@ class ActionCheckBalance(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict):
         user_id = tracker.get_slot("user_id")
+        print(f"The type of user_id is: {type(user_id)}")
 
         if not user_id:
             dispatcher.utter_message(text="I couldn't retrieve your user ID. Please provide it.")
@@ -95,6 +96,7 @@ class ActionCheckBalance(Action):
 
         try:
             user_record = user_data[user_data["user_id"] == int(user_id)]
+            print(f"The type of user_id is: {type(user_record)}")
             if not user_record.empty:
                 balance = user_record["balance"].iloc[0]
                 dispatcher.utter_message(response="utter_provide_balance", user_id=user_id, balance=balance)
@@ -106,30 +108,49 @@ class ActionCheckBalance(Action):
         
         return []
 
-class ActionSaveFeedback(Action):
+class ActionSubmitRating(Action):
     def name(self) -> Text:
-        return "action_save_feedback"
+        return "action_submit_rating"
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-        # Get rating and feedback message from the slots
+        
         rating = tracker.get_slot("rating")
-        feedback_message = tracker.get_slot("feedback_message")
-
+        
         if not rating or not rating.isdigit() or not (1 <= int(rating) <= 5):
             dispatcher.utter_message(text="Invalid rating. Please provide a number between 1 and 5.")
             return []
 
+        dispatcher.utter_message(text="Thank you for your rating. Now, please provide your feedback.")
+        
+        return [SlotSet("expecting_feedback", True), SlotSet("rating", rating)]
+    
+class ActionSubmitFeedback(Action):
+    def name(self) -> Text:
+        return "action_submit_feedback"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        rating = tracker.get_slot("rating")
+        feedback_message = tracker.get_slot("feedback_message")
+
+        if not rating:
+            dispatcher.utter_message(text="Please provide a rating first.")
+            return []
+
+        feedback_message = feedback_message or "No comments provided"
+        
         feedback_file_path = "feedback.csv"
         try:
             with open(feedback_file_path, mode='a', newline='', encoding='utf-8') as file:
                 writer = csv.writer(file)
-                writer.writerow([rating, feedback_message or "No comments provided"])
+                writer.writerow([rating, feedback_message])
             dispatcher.utter_message(response="utter_feedback_thank_you")
         except Exception as e:
             dispatcher.utter_message(text="An error occurred. Please try again later.")
             print(f"Error: {e}")
 
-        return [SlotSet("rating", None), SlotSet("feedback_message", None)]
+        return [SlotSet("rating", None), SlotSet("feedback_message", None),SlotSet("expecting_feedback", False) ]
