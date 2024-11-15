@@ -63,7 +63,8 @@ slots:
     type: text
     influence_conversation: true
     mappings:
-      - type: from_text
+      - type: from_entity
+        entity: user_id
 
   balance:
     type: text
@@ -94,8 +95,9 @@ actions:
   - action_answer_banking_question
   - action_check_balance
   - action_custom_fallback
-  - action_save_feedback
+  - action_submit_feedback
+  - action_submit_rating
   
 regex:
-  user_id: "[0-9]{5}"
+  user_id: "[0-9]{5,}"
   rating: "^[1-5]$"
