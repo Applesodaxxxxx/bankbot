@@ -45,4 +45,12 @@ rules:
         - expecting_feedback: true
   steps:
     - intent: provide_feedback
-    - action: action_save_feedback
+    - action: action_submit_feedback
+
+- rule: Provide rating
+  condition:
+    - slot_was_set:
+        - expecting_feedback: true
+  steps:
+    - intent: provide_rating
+    - action: action_submit_rating
