@@ -36,14 +36,14 @@ stories:
 - story: User provides feedback
   steps:
     - intent: feedback
+    - slot_was_set:
+        - expecting_feedback: true
     - action: utter_ask_rating
     - intent: provide_rating
       entities:
         - rating: "5"
-    - slot_was_set:
-        - expecting_feedback: true
-    - action: utter_ask_feedback_message
+    - action: action_submit_rating
     - intent: provide_feedback
     - slot_was_set:
         - expecting_feedback: false
-    - action: action_save_feedback
+    - action: action_submit_feedback
