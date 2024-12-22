@@ -24,12 +24,8 @@ cd bankbot`
 
 ### 2\. Create a Virtual Environment
 
-It is recommended to create a virtual environment to manage dependencies. This can be done using `venv` or `conda`.
+It is recommended to create a virtual environment to manage dependencies. This can be done using `conda`.
 
-#### Using `venv`:
-
-`python -m venv venv
-source venv/bin/activate  # On Windows use venv\Scripts\activate`
 
 #### Using `conda`:
 
